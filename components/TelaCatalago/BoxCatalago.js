@@ -32,9 +32,11 @@ const estilo = StyleSheet.create({
         display: 'flex',
         backgroundColor: '#AB887C',
         padding: 10,
-        flex-
+        
         justifyContent: 'center',
-        flexWrap: 'wrap'
+        flexWrap: 'wrap',
+        // direction
+        //flexDirection
     },
     img:{
         //margin
