@@ -22,6 +22,7 @@ export default function TelaCatalago () {
                 data={vinho}
                 renderItem={({item})=>
                 <BoxCatalago
+                    props={props}
                     titulo={item.titulo}
                     texto={item.texto}
                     nome={item.nome}

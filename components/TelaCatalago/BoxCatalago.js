@@ -1,20 +1,21 @@
 import {StyleSheet} from 'react-native';
 import {Image, Text, View, ScrollView, ImageBackground} from 'react-native';
 
-const BoxCatalago = ({titulo, texto, nome, detalhes, img})=>{
+const BoxCatalago = ({titulo, texto, nome, descricao, img})=>{
     return(
         <ScrollView>
             <Text style={estilo.titulo}>{titulo}</Text>
             <Text style={estilo.texto}>{texto}</Text>
             <ImageBackground
                 style={estilo.card}
+                onTouchEnd={() => {props.navigation.navigate('Detalhes', vinho)}}
             >
                 <Image
                     source={img}
                     style={estilo.img}
                 />
                 <Text style={estilo.nome}>{nome}</Text>
-                <Text style={estilo.detalhes}>{detalhes}</Text>
+                <Text style={estilo.detalhes}>{descricao}</Text>
             </ImageBackground>
         </ScrollView>
     );
@@ -51,6 +52,9 @@ const estilo = StyleSheet.create({
         justifyContent: 'center',
         fontSize: 10,
         margin: 5,
+    },
+    valor: {
+        fontWeight: 'bold',
     },
     detalhes: {
         fontSize: 5,

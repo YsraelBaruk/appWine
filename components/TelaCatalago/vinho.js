@@ -1,36 +1,61 @@
-import {View, ScrollView, FlatList} from 'react-native';
-import TelaCatalago from './index';
-import estilos from './estilo';
+import { Image, Text, View } from "react-native";
+import { StyleSheet} from 'react-native';
 
-export default function vinho(props){
-    const vinho = [
-        {
-            id:"1",
-            titulo:"Chatigny Chardonnay",
-            texto:"Vinho leve, refrescante e levemente cítrico da cor amarelo palha. Perfeito com carnes brancas e massa ao pesto.",
-            valor: "R$ 218,49",
-            imagem:requite("../../assets/vinho-branco.jpg"),
-        },
-    ];
+const Detalhes = (props)=>{
+    let vinho  = props.route.params;
     return(
-        <ScrollView>
-        <View style={estilos.container}>
-            <FlatList
-                data={vinho}
-                renderItem={({item})=>
-                <TelaCatalago 
-                    props={props}
-                    vinho={item}
-                />
-                }
-                keyExtractor={item => item.id}
-            />
-        </View>
-        </ScrollView>
-    )
+        <View style={estilo.container}>
+            <Text style={estilo.titulo}>{vinho.titulo}</Text>
+            <Image source={vinho.imagem} style={estilo.img}/>
+            <View style={estilo.mais}>
+                <Text style={estilo.preco}>{vinho.valor}</Text>
+                <Text style={estilo.descricao_titulo}>Descrição</Text>
+                <Text style={estilo.descricao}>{vinho.detalhes}</Text>
+            </View>
+        </View>  
+    );
 }
 
-//"R$ 179,99",
-//"R$ 208,99",
-//"R$ 379,99",
-//"R$329,05",
+
+const estilo = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'center',
+    },
+    img:{
+        width:'95vw',
+        height: '50vw'
+    },
+    titulo:{
+        fontSize: 22,       
+        color: "#222",
+        fontWeight: '700',
+        marginVertical: 10
+    },
+    preco:{
+        fontSize: 20,
+        margin:5,
+        textAlign: 'left'
+    },
+    preco:{
+        fontSize: 20,
+        margin:5,
+        textAlign: 'left'
+    },
+    mais:{
+        width: '95vw',
+        alignItems: 'flex-start'
+    },
+    descricao_titulo:{
+        fontSize: 20,
+        marginTop:10,
+        fontWeight: '500',
+        textAlign: 'left'
+    },
+    descricao:{
+        fontSize: 16,
+        textAlign: 'justify'
+    }
+  });
+  
+  export default Detalhes;
