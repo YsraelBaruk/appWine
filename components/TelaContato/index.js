@@ -49,7 +49,7 @@ export default function TelaContato() {
               />
             }
             keyExtractor={item => item.id}
-          />     
+          />
         </View>
       </ScrollView>
   );
